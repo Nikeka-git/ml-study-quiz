@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#152437">
+  <meta name="description" content="Practice 18 machine learning questions with instant explanations, shuffled attempts and mistake review.">
+  <title>ML Practice — Study Quiz</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23152437'/%3E%3Cpath d='m7 17 6 6 12-14' fill='none' stroke='%23c5f36b' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./questions.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./" aria-label="ML Practice home"><span class="brand-mark">m<span>l</span></span> ML Practice</a>
+    <span class="header-note">THE STUDY ROOM <span class="header-separator">/</span> 18 QUESTIONS</span>
+    <button class="text-button" id="study-toggle" type="button">Answer guide</button>
+  </header>
+  <main class="layout">
+    <aside class="sidebar" aria-label="Practice controls">
+      <div class="eyebrow">YOUR NEXT ATTEMPT</div>
+      <h1>Learn it.<br>Try it again.</h1>
+      <p class="intro">Machine learning fundamentals, one question at a time.</p>
+      <div class="session-card">
+        <div class="session-heading"><strong id="session-label">Full practice</strong><span id="session-count">18 questions</span></div>
+        <div class="progress-track" role="progressbar" id="progress" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0"><div id="progress-fill"></div></div>
+        <p id="progress-text">0 of 18 answered</p>
+        <div class="stats"><div><strong id="correct-stat">0</strong><span>correct</span></div><div><strong id="mistake-stat">0</strong><span>to review</span></div><div><strong id="best-stat">—</strong><span>best full score</span></div></div>
+      </div>
+      <label class="check-label"><input type="checkbox" id="shuffle" checked> Shuffle questions & answers</label>
+      <button class="sidebar-button" id="restart" type="button">Start a new attempt</button>
+      <button class="sidebar-button secondary" id="retry-mistakes" type="button" disabled>Practice mistakes <span id="mistake-count">0</span></button>
+      <div class="question-map" id="question-map" aria-label="Question navigation"></div>
+      <p class="small-note">Progress is saved on this device. Questions 3 and 15 were missing from the source photos.</p>
+      <p class="keyboard-note"><kbd>1</kbd>–<kbd>4</kbd> choose <span>·</span> <kbd>Enter</kbd> check / next</p>
+    </aside>
+    <section class="work-area" aria-label="Quiz">
+      <div id="quiz-panel">
+        <div class="question-top"><span id="question-position" class="eyebrow">QUESTION 01 / 18</span><span class="topic" id="topic"></span></div>
+        <article class="question-card" id="question-card">
+          <div class="source-number" id="source-number"></div>
+          <h2 id="question-prompt"></h2>
+          <pre id="question-code" hidden><code></code></pre>
+          <p class="source-note" id="source-note" hidden></p>
+          <form id="answer-form">
+            <fieldset id="choices"><legend class="sr-only">Choose an answer</legend></fieldset>
+            <div id="numeric-wrap" hidden><label for="numeric-answer">Your answer</label><input id="numeric-answer" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter a number"><p>Use a decimal point. Equivalent numeric answers are accepted.</p></div>
+            <p id="form-error" class="form-error" role="alert" hidden></p>
+            <div class="answer-actions" id="answer-actions"><button id="check-answer" class="primary-button" type="submit">Check answer</button><button class="text-button" type="button" id="reveal">Show answer</button></div>
+          </form>
+          <div class="feedback" id="feedback" aria-live="polite" hidden><div class="feedback-heading" id="feedback-heading"></div><p class="correct-answer" id="correct-answer"></p><p id="explanation"></p></div>
+        </article>
+        <div class="question-footer"><button class="nav-button" id="previous" type="button">Previous</button><span id="footer-hint">Take your time. Learn from every answer.</span><button class="nav-button" id="next" type="button">Next question</button></div>
+      </div>
+      <section id="results-panel" class="results-panel" hidden tabindex="-1"></section>
+      <section id="guide-panel" hidden><div class="guide-heading"><div><div class="eyebrow">KEEP THIS CLOSE</div><h2>Answer guide</h2></div><button class="nav-button" id="back-to-quiz" type="button">Back to practice</button></div><p class="guide-intro">All 18 recovered questions, with the reasoning behind each answer.</p><div id="guide-list"></div></section>
+    </section>
+  </main>
+  <dialog id="restart-dialog"><form method="dialog"><h2>Start a fresh attempt?</h2><p>Your current attempt will be replaced. Saved mistakes and your best score will stay available.</p><div class="dialog-actions"><button class="nav-button" value="cancel">Keep practicing</button><button class="primary-button" value="confirm">Start again</button></div></form></dialog>
+  <footer class="site-footer">Built for repetition. Understanding beats memorizing.</footer>
+</body>
+</html>
